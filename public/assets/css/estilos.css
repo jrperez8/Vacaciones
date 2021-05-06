@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital@1&family=Caveat&family=Montserrat:ital,wght@1,100&display=swap');
+
+
+.main-header__contacInfo__phone {    
+    color: white;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.main-header__contacInfo__address {
+    padding: 0px;
+    margin: 0;
+    color: white;
+}
+
+.main-header [class*="icon-"]:before {
+    position: relative;
+    top: 2px;
+    right: 5px;
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+ 
+  
+  @media (min-width: 992px) {
+    .rounded-lg-3 { border-radius: .3rem; }
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+    .special__img{
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  .special__img{
+    height: 200px;
+    object-fit: cover;   
+  }
+ 
+  
+.main-footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: .8em;
+}
+.copy {
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+}
+.main-footer [class*="icon-"] {
+    color: white;
+    text-decoration: none;
+}
+.main-footer [class*="icon-"]:before {
+    position: relative;
+    top: 3px;
+    right: 5px;
+}
+
+.caveat{
+  font-family: 'Caveat', cursive;
+}
+
+.amiri{
+  font-family: 'Amiri', serif;
+}
+
+.column__title {
+  font-size: 2em;
+}
+
+.today-special__title {
+  font-size: 1.3em;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+  
