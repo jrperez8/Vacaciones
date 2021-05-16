@@ -23,8 +23,32 @@
          <p class="main-header__contacInfo__address mx-3">
             <span class="icon-location">Medellín - Colombia</span>
          </p>
-        <h4  class="text-warning amiri">Hola Anfitrión</h4>        
+         <?php 
+               foreach ($datousuarios as $datousuario){
+                echo "<h4 class='text-warning amiri'>Hola {$datousuario->name}, este es tu Pérfil  </h4>";
+                } ?>         
+        <button type="button" class="btn btn-outline-warning mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Cerrar Sesión</button>     
       </form>      
      </div>
    </nav>
   </header> 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-warning text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p>Deseas Cerrar tu Sesión?</p>
+      </div>
+      <div class="modal-footer">
+        <form method="POST" action="<?php echo base_url();?>/signout">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+         <button type="submit" class="btn btn-warning" onclick="location.href='<?php echo base_URL();?>'">Confirmar</button>
+        </form>        
+      </div>
+    </div>
+  </div>
+</div>

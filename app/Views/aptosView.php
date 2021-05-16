@@ -1,6 +1,6 @@
 <main>
   <section>
-  <div class="container-flex" style="background: url(<?php echo base_URL();?>/assets/images/ima19.jpg) no-repeat left center; background-size: cover;">    
+  <div class="container-flex mt-1" style="background: url(<?php echo base_URL();?>/assets/images/ima19.jpg) no-repeat left center; background-size: cover;">    
      <div class="row">
       <div class="col-sm-12 d-flex my-5 justify-content-center">
         <h1 class="caveat display-3 text-warning">Gestión de Inmuebles</h1>        
@@ -15,7 +15,7 @@
           <input class="btn btn-dark btn-lg" type="button" value="Ver Mi Perfil"  onclick="location.href='perfil'" name="volverperfil">
         </div> 
         <div class="col-sm-6 mb-1">
-          <input class="btn btn-warning btn-lg" type="button" value="Agregar Inmueble" name="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <input class="btn btn-warning btn-lg" type="button" value="Agregar Inmueble" name="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal3">
         </div>  
         <div class="col-sm-12 mt-3">      
          <div class="card" style="width: 18rem;">
@@ -71,7 +71,7 @@
           </div>
   </div> 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
      <div class="modal-content">
       <div class="modal-header">
@@ -81,6 +81,12 @@
       <div class="modal-body">    
        <div class="col-sm-12 mt-3">
           <form class="row g-3 needs-validation">
+                 <div class="col-md-4">
+                     <label for="validationCustom01" class="form-label" >ID Cliente</label>
+                     <input type="text" class="form-control" placeholder="<?php foreach ($datousuarios as $datousuario){
+                echo "{$datousuario->id}";
+                } ?> " id="idusuario" required disabled>                         
+                  </div>
                   <div class="col-md-12">
                      <label for="validationCustom01" class="form-label">Ingrese la Ciudad</label>
                      <input type="text" class="form-control" id="validationCustom01" required>                         

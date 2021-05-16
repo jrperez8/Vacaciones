@@ -70,19 +70,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>       
       </div>
       <div class="modal-body">
-      <form method="POST" action="">
+      <form method="POST" action="<?php echo base_url();?>/signin" onsubmit="return loginvalidation()">
                 <div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">No tiene una Cuenta? <a href="registrarse.php">Cree una</a></div>
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">No tiene una Cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">Cree una</a></div>
                  </div>
                  <div class="mb-3">
                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                     <input type="password" class="form-control" id="password">
-                     <div class="form-text"><a href="">Olvido su contraseña?</a></div>
+                     <input type="password" class="form-control" id="password" name="password">                     
                  </div>                 
                  <div class="mb-3">
-                    <input type="button" value="INICIAR SESIÓN" class="btn btn-warning" id="btn_ingreso" onclick="loginvalidation()"></input> 
+                    <button type="submit" value="" class="btn btn-warning" id="btn_ingreso">INICIAR SESIÓN</button> 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>                   
                  </div>                 
              </form>
@@ -90,6 +89,8 @@
     </div>
   </div>
 </div> 
+
+
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -98,22 +99,22 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-    <form class="row g-3 needs-validation" action="" method="" name="form1" onsubmit="registervalidation()" novalidate>
+    <form class="row g-3 needs-validation" action="<?php echo base_url(). '/add'?>" method="POST" name="form1" onsubmit="return registervalidation()" novalidate>
        <div class="col-md-12">
          <label for="validationCustom01" class="form-label">Nombre Completo</label>
-         <input type="text" class="form-control" id="name" required>
+         <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="col-md-12">
         <label for="validationCustomUsername" class="form-label">Email</label>
         <div class="input-group has-validation">
           <span class="input-group-text" id="inputGroupPrepend">@</span>
-          <input type="text" class="form-control" id="email" aria-describedby="inputGroupPrepend" required>     
+          <input type="text" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend" required>     
         </div>
       </div>
   <div class="col-md-6">
     <label for="validationCustomUsername" class="form-label">Password</label>
     <div class="input-group has-validation">
-     <input type="password" class="form-control" id="password1" required>      
+     <input type="password" class="form-control" id="password1" name="password" required>      
     </div>
   </div>
   <div class="col-md-6">
@@ -124,15 +125,15 @@
   </div>
   <div class="col-md-6">
     <label for="validationCustom03" class="form-label">País</label>
-    <input type="text" class="form-control" id="country" required>    
+    <input type="text" class="form-control" id="country" name="country" required>    
   </div>
   <div class="col-md-6">
     <label for="validationCustom03" class="form-label">Ciudad</label>
-    <input type="text" class="form-control" id="city" required>    
+    <input type="text" class="form-control" id="city" name="city" required>    
   </div> 
     <div class="">
       <label for="exampleFormControlTextarea1" class="form-label">Ingresa acá una breve reseña sobre ti y tus inmuebles...</label>
-      <textarea class="form-control" id="review" rows="4"></textarea>
+      <textarea class="form-control" id="review" name="review" rows="4"></textarea>
     </div>    
       <div>
          <label for="">SELECCIONA TU PERFIL</label>
@@ -140,7 +141,7 @@
             <input class="form-check-input" type="radio" name="rol" value="cliente">Cliente</input>             
        </div>
         <div class="col-12">
-            <input type="button" value="REGISTRARSE" class="btn btn-warning" id="btn_registro" onclick="registervalidation()"></input>
+            <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Registrarse</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
          </div>
       </form>

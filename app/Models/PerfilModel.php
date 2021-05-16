@@ -6,10 +6,20 @@ use CodeIgniter\Model;
 
 class PerfilModel extends Model {
 
-    function readPerfil() {
-        $sql = "SELECT * FROM usuarios";
-        $perfil = $this->db->query($sql);
-        return $perfil->getResult();
-    }    
+  function readPerfil($email) {
+    $sql = "SELECT * FROM usuarios WHERE email = '{$email}' ";
+    $perfil = $this->db->query($sql);
+    return $perfil->getResult();
+    }
 
-}
+    function addImages($email,$filename){
+      $sql = "UPDATE usuarios SET photo = '{$filename}' WHERE email = '{$email}'";
+      $image = $this->db->query($sql);
+      return $image->getResult();
+    }
+}  
+
+
+
+ 
+

@@ -4,9 +4,12 @@
     <div class="row">
       <div class="col-sm-5">
         <div class="col-sm-12 rounded my-4">
-          <img src="<?php echo base_URL();?>/assets/images/atencion.jpg" class="rounded-circle img-fluid img-thumbnail mx-auto d-block"  width="120" height="120">
+        <?php 
+               foreach ($datousuarios as $datousuario){
+                echo "<img src= {$datousuario->photo} class='rounded-circle img-fluid img-thumbnail mx-auto d-block' width='120' height='120'> </img>";
+                } ?>           
         </div> 
-          <div class="col-sm-12 d-flex justify-content-center mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="col-sm-12 d-flex justify-content-center mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal3">
               <button class="btn btn-warning btn-sm" type="submit">Actualizar Imagen</button>
           </div>         
         </div>
@@ -110,7 +113,7 @@
    </div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -119,18 +122,21 @@
       </div>
       <div class="modal-body">
        <div class="col-sm-12 pt-1 mt-1 mb-3">
-          <form action="" method="POST" enctype="multipart/form-data">
+
+          <form action="<?php echo base_url();?>/images" method="POST" enctype="multipart/form-data">
             <label for="formFileSm" class="form-label">Selecciona o actualiza tu Foto de perfil</label>
-            <input class="form-control form-control-sm " id="foto_perfil" type="file">                       
-          </form>        
+            <input class="form-control form-control-sm mb-2" id="foto_perfil" type="file" name="foto_perfil"> 
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>                    
+          </form>   
+
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
+     
     </div>
   </div>
 </div>
+
+
 </div>
 </main>

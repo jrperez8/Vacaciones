@@ -35,6 +35,12 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'HomeController::index');
 $routes->get('/perfil', 'PerfilController::index');
 $routes->get('/aptos', 'AptosController::index');
+//$routes->get('/create', 'PerfilController::create');
+$routes->post('/add', 'HomeController::addUser'); // adicionar usuario
+$routes->post('/signin', 'HomeController::signin');	// validar ingreso
+$routes->post('/signout', 'PerfilController::logout'); //cerrar sesion
+$routes->post('/images', 'PerfilController::imageuser');
+//$routes->get('/prueba', 'PerfilController::getUser');
 
 /*
  * --------------------------------------------------------------------
