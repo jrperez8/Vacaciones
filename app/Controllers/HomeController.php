@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\HomeModel;
-
+use mysqli;
 
 class HomeController extends BaseController
 {
@@ -15,23 +15,27 @@ class HomeController extends BaseController
 	}
 
 	public function signin(){
-		$request = \Config\Services::request();
+		$request = \Config\Services::request();		
 		$loginModel = new HomeModel();
 		$session = \Config\Services::session();
 		$email = $request->getPost ('email');
-		$password = $request->getPost ('password');
-		$user = $loginModel->loginUser($email,$password);				
-		if(count($user)>0){
-			$newdata = [				
-				'email' => $email,
-				'rol'=> TRUE						
-			];
-			$session->set($newdata);
-			return redirect()->to('/perfil');			
-		}else {
+		$password = $request->getPost ('password');		
+		$user = $loginModel->loginUser($email,$password);	
+		
+		foreach($user as $datauser){
+			if(count($user)>0){
+				$newdata = [
+					'id'=> $datauser->id,													
+					'email' => $email,
+					'rol'=> TRUE						
+				];
+				$session->set($newdata);
+				return redirect()->to('/perfil');
+		} else {
 			echo ("Datos Incorrectos");
 		}
 	}
+}
 	
 	public function addUser(){
 		$session = \Config\Services::session();
@@ -46,7 +50,7 @@ class HomeController extends BaseController
 		$rol = $request->getPost ('rol');
 		$newuser = $addModel->addPerfil($name,$email,$password,$country,$city,$review,$rol);
 		if(count($newuser)>0){
-			$newdata = [				
+			$newdata = [								
 				'email' => $email,
 				'rol'=> TRUE						
 			];
@@ -56,6 +60,8 @@ class HomeController extends BaseController
 		else {
 			echo "El Correo Electrónico ya se Encuentra Registrado";			
 		}
+
+		
 		
 	}	
 

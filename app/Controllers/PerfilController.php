@@ -11,9 +11,9 @@ class PerfilController extends BaseController
 	{
 		
 		$session = \Config\Services::session();		
-		$perfil = new PerfilModel();
-		
+		$perfil = new PerfilModel();		
 		$email = $session->get('email');
+		
 		$datosPerfil = $perfil->readPerfil($email);			
 		
 		$datos = array(

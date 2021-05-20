@@ -86,4 +86,34 @@ function registervalidation(){
    
 }
 
+function addapto(){
+
+    let idusuario = document.getElementById("idusuario").value;
+    let ciudad = document.getElementById("ciudad").value;
+    let pais = document.getElementById("pais").value;
+    let direccion = document.getElementById("direccion").value;
+    let habitaciones = document.getElementById("habitaciones").value;
+    let valornoche = document.getElementById("valornoche").value;
+    let resena = document.getElementById("resena").value;
+
+    var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+
+    document.getElementById("idusu").value = idusuario;
+
+
+    if( idusuario == null || idusuario.length == 0 || /^\s+$/.test(idusuario) ) {
+        alert ("El Campo ID Usuario no se toma");
+        return false;
+      }
+    else{
+      {
+          alert(idusuario);
+          return false;
+      }
+    }
+    
+    
+    
+}
+
 
