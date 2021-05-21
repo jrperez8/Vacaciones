@@ -16,29 +16,41 @@
         </div> 
         <div class="col-sm-6 mb-1">
           <input class="btn btn-warning btn-lg" type="button" value="Agregar Inmueble" name="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-        </div>  
-        
-        <?php 
-          foreach ($datosaptos as $datoapto){
-              $template = "
-              <div class='col-12 col-sm-12 col-md-6 col-lg-4 mt-3'> 
-               <div class='card' style='width: 18rem;'>
+        </div> 
+        <div>
+         
+        </div>
+        <div class="container">
+          <div class="row">
+          <?php 
+          foreach ($datosaptos as $datoapto){  
+              $route = base_url()."/deleteapto?id_apto={$datoapto->id_apto}";
+              $template = "              
+              <div class='col-12 col-sm-12 col-md-6 col-lg-4 mt-3'>              
+               <div class='card' style='width: 18rem;'>                
+                <h3 class='card-title'>{$datoapto->pais}</h3>
                 <img src='{$datoapto->imagen_apto}' class='card-img-top special__img'>
                 <div class='card-body'>
-                  <h5 class='card-title'>{$datoapto->ciudad}</h5>
+                  <h5 class='card-text'>{$datoapto->ciudad}</h5>
                   <p class='card-text'>{$datoapto->resena_apto}</p>
-                  <p class='card-text'>{$datoapto->valor_noche}</p>
-                  <a href='' class='btn btn-outline-danger' data-bs-toggle='modal' data-bs-target='#exampleModal4'>Delete</a>
-                  <button type='button' class='btn btn-outline-dark' data-toggle='modal' data-target=''>  
-                                Editar
-                </button>                
+                  <p class='card-text'>Valor noche $ {$datoapto->valor_noche}</p>
+                  <a href='{$route}' class='btn btn-outline-danger'>Delete</a>
+                  <button type='button' class='btn btn-outline-dark' data-toggle='modal' data-target=''>Editar</button>                
                 </div>
                </div>
-               </div>
+               </div>             
+               
               ";
+              //echo $route;
               echo $template; 
+              
+              
           }          
           ?>      
+          </div>        
+        </div>
+        
+        
         
       </div>        
     </div>
@@ -131,24 +143,6 @@
   </div>
 </div>  
 
-<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header text-white bg-danger">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar Inmueble</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Estas seguro de Eliminar esta propiedad de tu lista de inmuebles registrados?</p>
-      </div>
-      <div class="modal-footer">
-      <form action="POST" action="<?php echo base_url();?>/deleteapto">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
-      </form>        
-      </div>
-    </div>
-  </div>
-</div>
+
 
 </main>

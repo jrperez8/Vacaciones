@@ -8,8 +8,8 @@ use mysqli;
 class AptosModel extends Model {
     
     public function addaptos($idusuario,$ciudad,$pais,$direccion,$habitaciones,$valornoche,$path,$resena){
-       /* $conex = mysqli_connect("localhost","root","","vacaciones") or die ("Error al Conectar la Base de Datos");
-        $validate = mysqli_query($conex,"SELECT direccion FROM aptos WHERE id_usu = '{$idusuario}'");
+        $conex = mysqli_connect("localhost","root","","vacaciones") or die ("Error al Conectar la Base de Datos");
+        /*$validate = mysqli_query($conex,"SELECT direccion FROM aptos WHERE id_usu = '{$idusuario}'");
         if(mysqli_num_rows($validate)==0)
         {*/
           $sql = "INSERT INTO aptos (id_usu,ciudad,pais,direccion,habitacion,valor_noche,imagen_apto,resena_apto) VALUES ('{$idusuario}','{$ciudad}','{$pais}','{$direccion}','{$habitaciones}','{$valornoche}','{$path}','{$resena}')";

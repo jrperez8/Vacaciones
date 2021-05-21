@@ -116,4 +116,9 @@ function addapto(){
     
 }
 
+function removeapto(){
+
+    alert ("Registro Eliminado");
+}
+
 

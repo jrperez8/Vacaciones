@@ -38,7 +38,7 @@ class AptosController extends BaseController
 	public function addapto(){
 		$session = \Config\Services::session();
 		$request = \Config\Services::request();
-		$addApto = new AptosModel();		
+		$addapto = new AptosModel();		
 		$idusuario = $session->get('id');
 		//$idusuario = $request->getPost ('idusu');		
 		$ciudad = $request->getPost ('ciudad');
@@ -55,16 +55,16 @@ class AptosController extends BaseController
 			$path = base_url(). '/descargas/aptos/' .$nombreimagen;
 		}		
 			
-		$addApto->addaptos($idusuario,$ciudad,$pais,$direccion,$habitaciones,$valornoche,$path,$resena);
+		$newapto = $addapto->addaptos($idusuario,$ciudad,$pais,$direccion,$habitaciones,$valornoche,$path,$resena);		
+		
 		return redirect()->to('/aptos');
 	}
 
-	public function deleteaptos(){
-		$session = \Config\Services::session();
-		$request = \Config\Services::request();
-		$removeapto = new AptosModel();
-		$idapto = $request->getPost('id_apto');
-		$removeapto->deleteaptos($idapto);
+	public function deleteaptos(){	
+		$removeapto = new AptosModel();	
+		$request = \Config\Services::request();		
+		$idapto = $request->getGet('id_apto');		
+		$removeapto->deleteaptos($idapto);		
 		return redirect()->to('/aptos');
 	}
 }

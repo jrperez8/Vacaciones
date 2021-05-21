@@ -70,7 +70,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>       
       </div>
       <div class="modal-body">
-
       <form method="POST" action="<?php echo base_url();?>/signin" onsubmit="return loginvalidation()">
                 <div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -86,7 +85,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>                   
                  </div>                 
       </form>
-
       </div>     
     </div>
   </div>

@@ -41,7 +41,7 @@ $routes->post('/signin', 'HomeController::signin');	// validar ingreso
 $routes->post('/signout', 'PerfilController::logout'); //cerrar sesion
 $routes->post('/images', 'PerfilController::imageuser');
 $routes->post('/newapto', 'AptosController::addapto');
-$routes->post('/deleteapto', 'AptosController::deleteaptos');//eliminar apto
+$routes->get('/deleteapto', 'AptosController::deleteaptos');//eliminar apto
 //$routes->get('/prueba', 'PerfilController::getUser');
 
 /*
