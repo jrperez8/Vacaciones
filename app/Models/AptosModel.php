@@ -27,9 +27,21 @@ class AptosModel extends Model {
       return $aptos->getResult();
     }
 
+    public function actualizaapto($aidapto,$aciudad,$apais,$adireccion,$ahabitaciones,$avalornoche,$paths,$aresena){
+      $sql = "UPDATE aptos SET ciudad='{$aciudad}',pais='{$apais}',direccion='{$adireccion}',habitacion='{$ahabitaciones}',valor_noche='{$avalornoche}',imagen_apto='{$paths}',resena_apto='{$aresena}' WHERE id_apto='{$aidapto}'";
+      $actualapto = $this->db->query($sql);
+      return $actualapto->getResult();
+    }
+
     public function deleteaptos($idapto){
       $sql = "DELETE FROM aptos WHERE id_apto = '{$idapto}'";
       $remove = $this->db->query($sql);
       return $remove ->getResult();
+    }
+
+    function getapto($id_apto){
+      $sql = "SELECT * FROM aptos WHERE id_apto={$id_apto}";
+      $apto = $this->db->query($sql);
+      return $apto->getResult();
     }
 }

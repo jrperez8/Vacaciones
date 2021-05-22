@@ -29,6 +29,7 @@ class AptosController extends BaseController
 			"datosaptos" => $datosApto,
 		);
 
+		
 
 		echo view ('layouts/header',$datos);
 		echo view ('aptosView',$images);
@@ -57,6 +58,31 @@ class AptosController extends BaseController
 			
 		$newapto = $addapto->addaptos($idusuario,$ciudad,$pais,$direccion,$habitaciones,$valornoche,$path,$resena);		
 		
+		return redirect()->to('/aptos');
+	}
+
+	public function updateapto(){
+		$actual = new AptosModel();	
+		$request = \Config\Services::request();		
+		$aidapto = $request->getGet('id_apto');
+		//$aidapto = 23;		
+		//$apto = $actualapto->getapto($id_apto);		
+		//$actapto = $actual->actualizaapto($id_apto);
+		$aciudad = $request->getPost ('actciudad');
+		$apais = $request->getPost ('actpais');
+		$adireccion = $request->getPost ('actdireccion');
+		$ahabitaciones = $request->getPost ('acthabitaciones');	
+		$avalornoche = $request->getPost ('actvalornoche');			
+		$aresena = $request->getPost ('actresena');	
+		$aaptoimages= $request->getFile('actfoto_apto');
+		$nnameimagen = $aaptoimages->getRandomName();
+		$paths = "";
+		if($aaptoimages->isValid() && !$aaptoimages->hasmoved()){
+			$aaptoimages->move('./descargas/aptos/',$nnameimagen);
+			$paths = base_url(). '/descargas/aptos/' .$nnameimagen;
+		}	
+			
+		$actual->actualizaapto($aidapto,$aciudad,$apais,$adireccion,$ahabitaciones,$avalornoche,$paths,$aresena);	
 		return redirect()->to('/aptos');
 	}
 

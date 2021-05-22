@@ -39,9 +39,10 @@ $routes->get('/aptos', 'AptosController::index');
 $routes->post('/add', 'HomeController::addUser'); // adicionar usuario
 $routes->post('/signin', 'HomeController::signin');	// validar ingreso
 $routes->post('/signout', 'PerfilController::logout'); //cerrar sesion
-$routes->post('/images', 'PerfilController::imageuser');
-$routes->post('/newapto', 'AptosController::addapto');
+$routes->post('/images', 'PerfilController::imageuser'); //añadir imagen
+$routes->post('/newapto', 'AptosController::addapto'); //añadir apto
 $routes->get('/deleteapto', 'AptosController::deleteaptos');//eliminar apto
+$routes->post('/updateapto', 'AptosController::updateapto');//actualizar info apto
 //$routes->get('/prueba', 'PerfilController::getUser');
 
 /*

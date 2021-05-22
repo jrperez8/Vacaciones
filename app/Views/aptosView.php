@@ -25,6 +25,7 @@
           <?php 
           foreach ($datosaptos as $datoapto){  
               $route = base_url()."/deleteapto?id_apto={$datoapto->id_apto}";
+              $routeupdate = base_url()."/updateapto?id_apto={$datoapto->id_apto}";
               $template = "              
               <div class='col-12 col-sm-12 col-md-6 col-lg-4 mt-3'>              
                <div class='card' style='width: 18rem;'>                
@@ -34,16 +35,14 @@
                   <h5 class='card-text'>{$datoapto->ciudad}</h5>
                   <p class='card-text'>{$datoapto->resena_apto}</p>
                   <p class='card-text'>Valor noche $ {$datoapto->valor_noche}</p>
-                  <a href='{$route}' class='btn btn-outline-danger'>Delete</a>
-                  <button type='button' class='btn btn-outline-dark' data-toggle='modal' data-target=''>Editar</button>                
+                  <a href='{$route}' class='btn btn-outline-danger' onclick='return removeapto()'>Delete</a>
+                  <button type='button' class='btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editar'>Editar</button>                
                 </div>
                </div>
-               </div>             
-               
-              ";
-              //echo $route;
-              echo $template; 
+               </div>           
+               ";
               
+              echo $template;           
               
           }          
           ?>      
@@ -55,38 +54,49 @@
       </div>        
     </div>
   </section>
-  <div class="modal fade" id="modal_actualiza" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="modal_actualiza" style="color: #008080;">Hospedajes & Vacaciones © Editar Alojamiento</h5>                 
+                <h3 class="modal-title caveat" id="exampleModalLabel">ACTUALIZA LOS DATOS DE TU APARTAMENTO</h3>        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                 
                 </div>
                 <div class="modal-body">
-                  <form action="" method="POST">
-                  <div class="form-group">
-                    <label style="color: #008080;">Nombre:</label>
-                  <input type="text" class="form-control" name="nameEditar" value="">
+                <form class="row g-3 needs-validation" action="<?php echo $routeupdate?>" method="POST" enctype="multipart/form-data" onsubmit="addDataModal()">                     
+                  
+                  <div class="col-md-12">
+                     <label for="validationCustom01" class="form-label">Ingrese la Ciudad</label>
+                     <input type="text" class="form-control" value="<?php echo ($datoapto->ciudad)?>"  id="actciudad" name="actciudad" required>                         
                   </div>
-                  <div class="form-group">
-                    <label style="color: #008080;">Ciudad:</label>
-                  <input type="text" class="form-control" name="cityEditar" value="">
+                  <div class="col-md-12">
+                     <label for="validationCustom01" class="form-label">Ingrese el Pais</label>
+                     <input type="text" class="form-control" value="<?php echo ($datoapto->pais)?>" id="actpais" name="actpais" required>                        
                   </div>
-                  <div class="form-group">
-                    <label style="color: #008080;">Email:</label>
-                  <input type="text" class="form-control" name="emailEditar" value="">
+                  <div class="col-md-12">
+                     <label for="validationCustom01" class="form-label">Ingrese Direccion Completa</label>
+                     <input type="text" class="form-control" value="<?php echo ($datoapto->direccion)?>" id="actdireccion" name="actdireccion" required>                        
+                  </div>                  
+                  <div class="col-md-4">
+                     <label for="validationCustom01" class="form-label"># de Habitaciones</label>
+                     <input type="text" class="form-control" value="<?php echo ($datoapto->habitacion)?>" id="acthabitaciones" name="acthabitaciones" required>                        
                   </div>
-                  <div class="form-group">
-                    <label style="color: #008080;">Celular:</label>
-                  <input type="text" class="form-control" name="celEditar" value="">
-                  </div>         
-            <div class="form-group">
-              <label style="color: #008080;">Descripcion:</label>
-                <textarea class="form-control" rows="3" name="descripcionEditar"></textarea>
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-outline-info" name="btnEditar">Actualizar</button>
-            </div>                
-            
-               </form>
+                  <div class="col-md-8">
+                     <label for="validationCustom01" class="form-label">Valor por Noche</label>
+                     <input type="text" class="form-control" value="<?php echo ($datoapto->valor_noche)?>" id="actvalornoche" name="actvalornoche" required>                        
+                  </div>                                   
+                  <div class="col-md-12 mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Por Favor Ingrese una Breve Reseña del Inmueble</label>
+                    <textarea class="form-control" id="actresena" name="actresena" required rows="3"></textarea>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <label for="formFile" class="form-label">Añada la imagen del Inmueble</label>
+                    <input class="form-control" type="file" id="actfoto_apto" name="actfoto_apto" required>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>  
+                  </div>                                              
+              </form>                  
               </div>                                
             </div>
           </div>
@@ -129,7 +139,7 @@
                   </div>
                   <div class="col-md-12 mb-3">
                     <label for="formFile" class="form-label">Añada la imagen del Inmueble</label>
-                    <input class="form-control" type="file" id="foto_apto" name="foto_apto">
+                    <input class="form-control" type="file" id="foto_apto" name="foto_apto" required>
                   </div>
                   <div class="col-md-12 mb-3">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
