@@ -16,52 +16,33 @@
         </div> 
         <div class="col-sm-6 mb-1">
           <input class="btn btn-warning btn-lg" type="button" value="Agregar Inmueble" name="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-        </div> 
-        <div>
-         
-        </div>
+        </div>         
         <div class="container">
           <div class="row">
-          <?php 
-          foreach ($datosaptos as $datoapto){  
-              $route = base_url()."/deleteapto?id_apto={$datoapto->id_apto}";
-              $routeupdate = base_url()."/updateapto?id_apto={$datoapto->id_apto}";
-              $template = "              
-              <div class='col-12 col-sm-12 col-md-6 col-lg-4 mt-3'>              
-               <div class='card' style='width: 18rem;'>                
-                <h3 class='card-title'>{$datoapto->pais}</h3>
-                <img src='{$datoapto->imagen_apto}' class='card-img-top special__img'>
-                <div class='card-body'>
-                  <h5 class='card-text'>{$datoapto->ciudad}</h5>
-                  <p class='card-text'>{$datoapto->resena_apto}</p>
-                  <p class='card-text'>Valor noche $ {$datoapto->valor_noche}</p>
-                  <a href='{$route}' class='btn btn-outline-danger' onclick='return removeapto()'>Delete</a>
-                  <button type='button' class='btn btn-outline-dark' data-bs-toggle='modal' data-bs-target='#editar'>Editar</button>                
-                </div>
-               </div>
-               </div>           
-               ";
-              
-              echo $template;           
-              
-          }          
-          ?>      
-          </div>        
-        </div>
-        
-        
-        
-      </div>        
-    </div>
-  </section>
-  <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <?php foreach ($datosaptos as $datoapto):?>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-3"> 
+              <div class="card" style="width: 18rem;"> 
+                <h3 class="card-title"><?php echo ($datoapto->pais)?></h3>
+                <img src="<?php echo ($datoapto->imagen_apto)?>" class="card-img-top special__img">
+                <div class="card-body">
+                   <h5 class="card-text"><?php echo ($datoapto->ciudad)?></h5>
+                   <p class="card-text"><?php echo ($datoapto->resena_apto)?></p>
+                   <p class="card-text">Valor noche $ <?php echo ($datoapto->valor_noche)?></p>
+                   <?php $route = base_url()."/deleteapto?id_apto={$datoapto->id_apto}";?>
+                   <a href="<?php echo $route?>" class="btn btn-outline-danger" onclick="return removeapto()">Delete</a>
+                   <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editar<?php echo ($datoapto->id_apto)?>">Editar</button>
+                </div> 
+              </div>
+            </div>
+            <div class="modal fade" id="editar<?php echo ($datoapto->id_apto)?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                 <h3 class="modal-title caveat" id="exampleModalLabel">ACTUALIZA LOS DATOS DE TU APARTAMENTO</h3>        
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                 
                 </div>
                 <div class="modal-body">
+                <?php $routeupdate = base_url()."/updateapto?id_apto={$datoapto->id_apto}";?>
                 <form class="row g-3 needs-validation" action="<?php echo $routeupdate?>" method="POST" enctype="multipart/form-data" onsubmit="addDataModal()">                     
                   
                   <div class="col-md-12">
@@ -100,7 +81,10 @@
               </div>                                
             </div>
           </div>
-  </div> 
+          </div> 
+          <?php endforeach ?>      
+  </section>
+  
 
   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
