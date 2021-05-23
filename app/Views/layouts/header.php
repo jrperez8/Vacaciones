@@ -25,7 +25,7 @@
          </p>
          <?php 
                foreach ($datousuarios as $datousuario){
-                echo "<h4 class='text-warning amiri'>Hola {$datousuario->name}, este es tu Pérfil  </h4>";
+                echo "<h4 class='text-warning amiri'>Hola {$datousuario->name} </h4>";
                 } ?>         
         <button type="button" class="btn btn-outline-warning mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Cerrar Sesión</button>     
       </form>      
