@@ -147,36 +147,26 @@
      </div>                
    </div>         
            </div>  
-                   
-       
-
        </div>
-
       </div>
-
     </div>    
-
 </section>
-
-
-
-     
-  
 
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Escriba su Reseña - Max 150 carácteres</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Escriba su Reseña - Máx 300 carácteres</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <textarea class="form-control" id="review" rows="4"></textarea>
+      <form action="<?php echo base_url();?>/review" method="POST">
+        <textarea class="form-control mb-2" id="actreview" name="actreview" rows="4"></textarea>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button> 
+      </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Actualizar</button>
-      </div>
+          
     </div>
    </div>
   </div>
@@ -193,7 +183,7 @@
 
           <form action="<?php echo base_url();?>/images" method="POST" enctype="multipart/form-data">
             <label for="formFileSm" class="form-label">Selecciona o actualiza tu Foto de perfil</label>
-            <input class="form-control form-control-sm mb-2" id="foto_perfil" type="file" name="foto_perfil"> 
+            <input class="form-control form-control-sm mb-2" id="foto_perfil" type="file" name="foto_perfil" required> 
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-primary">Guardar</button>                    
           </form>   

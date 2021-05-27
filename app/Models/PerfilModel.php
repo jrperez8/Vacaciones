@@ -17,6 +17,13 @@ class PerfilModel extends Model {
       $image = $this->db->query($sql);
       return $image->getResult();
     }
+
+    function updateReview($email,$newreview){
+      $sql = "UPDATE usuarios SET review = '{$newreview}' WHERE email = '{$email}'";
+      $upreview = $this->db->query($sql);
+      return $upreview->getResult();
+    }
+
 }  
 
 

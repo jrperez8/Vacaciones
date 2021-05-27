@@ -31,25 +31,6 @@ class PerfilController extends BaseController
 			return redirect()->to('/');
 	}
 
-
-	/*--------new------*/
-
-	/*public function getUser(){
-		$session = \Config\Services::session();
-		if($session->get('email')==""){
-			echo "Usuario No Existe";
-		}else{
-		$request = \Config\Services::request();
-		$userModel = new PerfilModel();
-		$email = $request->getGet('email');
-		$user = $userModel->readPerfil($email);
-		echo view ('layouts/header');
-		echo view ('perfilView',array("users"=>$email) );
-		echo view ('layouts/footer');		
-		}
-		
-	}*/
-
 	public function imageuser(){
 		$request = \Config\Services::request();
 		$imagesModel = new PerfilModel();
@@ -66,8 +47,15 @@ class PerfilController extends BaseController
 		return redirect()->to('/perfil');
 	}
 
-
-
+	public function reviewUser(){
+		$request = \Config\Services::request();
+		$reviewmodel = new PerfilModel();
+		$session = \Config\Services::session();
+		$email = $session->get('email');
+		$newreview = $request->getPost('actreview');
+		$reviewmodel->updateReview($email,$newreview);
+		return redirect()->to('/perfil');
+	}
 	
 
 

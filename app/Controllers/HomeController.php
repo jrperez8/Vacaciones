@@ -37,20 +37,31 @@ class HomeController extends BaseController
 	}
 }
 	
-	public function addUser(){
-		$session = \Config\Services::session();
-		$request = \Config\Services::request();
-		$addModel = new HomeModel();
-		$name = $request->getPost ('name');
-		$email = $request->getPost ('email');
-		$password = $request->getPost ('password');
-		$country = $request->getPost ('country');
-		$city = $request->getPost ('city');
-		$review = $request->getPost ('review');
-		$rol = $request->getPost ('rol');
-		$newuser = $addModel->addPerfil($name,$email,$password,$country,$city,$review,$rol);
-		if(count($newuser)>0){
-			$newdata = [								
+public function addUser(){
+	$session = \Config\Services::session();
+	$request = \Config\Services::request();
+	$addModel = new HomeModel();
+	$name = $request->getPost ('name');
+	$email = $request->getPost ('email');
+	$password = $request->getPost ('password');
+	$country = $request->getPost ('country');
+	$city = $request->getPost ('city');
+	$review = $request->getPost ('review');
+	$rol = $request->getPost ('rol');
+	$file = $request->getFile('photo_perfil');
+	$filephoto = $file->getRandomName();
+	$photo = "";
+		if($file->isValid() && !$file->hasmoved()){
+			$file->move('./uploads/images/',$filephoto);
+			$photo = base_url(). '/uploads/images/' .$filephoto;
+		}
+	$newuser = $addModel->addPerfil($name,$email,$password,$country,$city,$review,$rol,$photo);
+	$getuser = $addModel->getUser($email);
+	
+	foreach ($getuser as $datouser) 
+		if(count($getuser)>0){
+			$newdata = [	
+				'id' => $datouser->id,							
 				'email' => $email,
 				'rol'=> TRUE						
 			];
@@ -58,11 +69,8 @@ class HomeController extends BaseController
 			return redirect()->to('/perfil');
 		}
 		else {
-			echo "El Correo Electrónico ya se Encuentra Registrado";			
-		}
-
-		
-		
-	}	
-
+			echo "El Correo Electrónico ya se Encuentra Registrado Controller";			
+		}	
+	
+}	
 }

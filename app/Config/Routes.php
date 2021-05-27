@@ -43,7 +43,7 @@ $routes->post('/images', 'PerfilController::imageuser'); //añadir imagen
 $routes->post('/newapto', 'AptosController::addapto'); //añadir apto
 $routes->get('/deleteapto', 'AptosController::deleteaptos');//eliminar apto
 $routes->post('/updateapto', 'AptosController::updateapto');//actualizar info apto
-//$routes->get('/prueba', 'PerfilController::getUser');
+$routes->post('/review', 'PerfilController::reviewUser'); //actualizar reseña cliente
 
 /*
  * --------------------------------------------------------------------

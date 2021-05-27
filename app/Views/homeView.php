@@ -99,7 +99,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-    <form class="row g-3 needs-validation" action="<?php echo base_url(). '/add'?>" method="POST" name="form1" onsubmit="return registervalidation()" novalidate>
+      <form class="row g-3 needs-validation" action="<?php echo base_url(). '/add'?>" method="POST" name="form1" onsubmit="return registervalidation()" enctype="multipart/form-data" novalidate>
        <div class="col-md-12">
          <label for="validationCustom01" class="form-label">Nombre Completo</label>
          <input type="text" class="form-control" id="name" name="name" required>
@@ -139,6 +139,10 @@
          <label for="">SELECCIONA TU PERFIL</label>
             <input class="form-check-input" type="radio" name="rol" value="anfitrion">Anfitrión</input>           
             <input class="form-check-input" type="radio" name="rol" value="cliente">Cliente</input>             
+       </div>
+       <div>
+            <label for="formFileSm" class="form-label">Selecciona tu Foto</label>
+            <input class="form-control form-control-sm mb-2" id="photo_perfil" type="file" name="photo_perfil" required>
        </div>
         <div class="col-12">
             <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Registrarse</button>
