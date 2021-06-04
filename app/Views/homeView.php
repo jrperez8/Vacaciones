@@ -70,6 +70,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>       
       </div>
       <div class="modal-body">
+      
       <form method="POST" action="<?php echo base_url();?>/signin" onsubmit="return loginvalidation()">
                 <div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -99,7 +100,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form class="row g-3 needs-validation" action="<?php echo base_url(). '/add'?>" method="POST" name="form1" onsubmit="return registervalidation()" enctype="multipart/form-data" novalidate>
+  <form class="row g-3 needs-validation" action="<?php echo base_url(). '/add'?>" method="POST" name="form1" onsubmit="return registervalidation()" enctype="multipart/form-data" novalidate>
        <div class="col-md-12">
          <label for="validationCustom01" class="form-label">Nombre Completo</label>
          <input type="text" class="form-control" id="name" name="name" required>

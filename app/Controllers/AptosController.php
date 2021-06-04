@@ -20,8 +20,8 @@ class AptosController extends BaseController
 			"datousuarios" => $datosPerfil,
 			
 		);
+		
 		$aptos = new AptosModel();		
-		//$idusuario = $request->getPost ('idusu');
 		$idusuario = $session->get('id');
 		$datosApto = $aptos->readAptos($idusuario);
 

@@ -22,9 +22,19 @@ class HomeModel extends Model {
           
 
         public function loginUser($email,$password){
-          $sql = "SELECT * FROM usuarios WHERE email = '{$email}' AND password = '{$password}'";
-          $user = $this->db->query($sql)->getResult();
-          return $user;
+          
+          $cnx = mysqli_connect("localhost","root","","vacaciones") or die ("Error al Conectar la Base de Datos");
+          $validatelogin = mysqli_query($cnx, "SELECT email FROM usuarios WHERE email = '{$email}'");
+          if(mysqli_num_rows($validatelogin)>0){
+            $sql = "SELECT * FROM usuarios WHERE email = '{$email}' AND password = '{$password}'";
+            $user = $this->db->query($sql)->getResult();
+            return $user;
+          }
+          else {
+            //echo '<script type = "text/javascript" src ="/assets/js/validaciones.js">' ,'return mensajeValidacion();','</script>';
+            echo "<h2>El Correo Electrónico no se encuentra Registrado Model</h2>";
+          }
+         
         }
 
     public function getUser($email){
@@ -37,4 +47,7 @@ class HomeModel extends Model {
       //$user = $this->db->query($sql)->getResult();
       //return $user;
 }
+?>
+
+
     

@@ -46,7 +46,7 @@
               <div class="collapse" id="collapseExample2">
                 <div class="card card-body">
                 <h4 class="caveat text-center col-sm-12 mt-3">Actualizar Información</h4> 
-          <form class="row g-3 needs-validation" action="<?php echo base_url(). '/'?>" method="POST" name="form1" onsubmit="return registervalidation()" novalidate>
+          <form class="row g-3 needs-validation" action="<?php echo base_url(). '/updateuser'?>" method="POST" name="form2" onsubmit="return updateValidation()" novalidate>
               <div class="col-md-8">
                 <label for="validationCustom01" class="form-label amiri">Nombre Completo</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -84,7 +84,7 @@
                   <input class="form-check-input" type="radio" name="rol" value="cliente">Cliente</input>             
             </div>
             <div class="col-12 mb-2">
-            <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Registrarse</button>
+            <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Actualizar</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
          </div>
           </form>

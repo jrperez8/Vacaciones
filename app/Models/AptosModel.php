@@ -44,4 +44,10 @@ class AptosModel extends Model {
       $apto = $this->db->query($sql);
       return $apto->getResult();
     }
+
+    function aptosPais($pais){
+      $sql = "SELECT * FROM aptos WHERE pais='{$pais}'";
+      $pais = $this->db->query($sql);
+      return $pais->getResult();
+    }
 }

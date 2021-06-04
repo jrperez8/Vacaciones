@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'HomeController::index');
 $routes->get('/perfil', 'PerfilController::index');
 $routes->get('/aptos', 'AptosController::index');
-//$routes->get('/create', 'PerfilController::create');
+$routes->get('/cliente','ClienteController::index');
 $routes->post('/add', 'HomeController::addUser'); // adicionar usuario
 $routes->post('/signin', 'HomeController::signin');	// validar ingreso
 $routes->post('/signout', 'PerfilController::logout'); //cerrar sesion
@@ -44,6 +44,10 @@ $routes->post('/newapto', 'AptosController::addapto'); //añadir apto
 $routes->get('/deleteapto', 'AptosController::deleteaptos');//eliminar apto
 $routes->post('/updateapto', 'AptosController::updateapto');//actualizar info apto
 $routes->post('/review', 'PerfilController::reviewUser'); //actualizar reseña cliente
+$routes->post('/updateuser','PerfilController::updateUser');//actualizar info cliente
+$routes->get('/rol','ClienteController::choise');
+$routes->post('/pais','ClienteController::assignCountry');
+
 
 /*
  * --------------------------------------------------------------------

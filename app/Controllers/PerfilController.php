@@ -29,6 +29,7 @@ class PerfilController extends BaseController
 			$session = \Config\Services::session();	
 			$session->destroy();
 			return redirect()->to('/');
+			
 	}
 
 	public function imageuser(){
@@ -56,8 +57,20 @@ class PerfilController extends BaseController
 		$reviewmodel->updateReview($email,$newreview);
 		return redirect()->to('/perfil');
 	}
-	
 
-
+	public function updateUser(){
+		$request = \Config\Services::request();
+		$actualizaUser = new PerfilModel();
+		$session = \Config\Services::session();
+		$id = $session->get('id');
+		$name = $request->getPost ('name');
+		$email = $request->getPost ('email');
+		$password = $request->getPost ('password');
+		$country = $request->getPost ('country');
+		$city = $request->getPost ('city');		
+		$rol = $request->getPost ('rol');
+		$actualizaUser->updateUser($id,$name,$email,$password,$country,$city,$rol);
+		return redirect()->to('/perfil');
+	}
 
 }

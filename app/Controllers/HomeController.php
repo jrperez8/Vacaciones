@@ -27,10 +27,11 @@ class HomeController extends BaseController
 				$newdata = [
 					'id'=> $datauser->id,													
 					'email' => $email,
-					'rol'=> TRUE						
+					'rol'=> $datauser->rol,						
 				];
 				$session->set($newdata);
-				return redirect()->to('/perfil');
+				return redirect()->to('/rol');
+				
 		} else {
 			echo ("Datos Incorrectos");
 		}
@@ -63,7 +64,7 @@ public function addUser(){
 			$newdata = [	
 				'id' => $datouser->id,							
 				'email' => $email,
-				'rol'=> TRUE						
+				'rol'=> $datouser->rol,						
 			];
 			$session->set($newdata);
 			return redirect()->to('/perfil');
@@ -72,5 +73,5 @@ public function addUser(){
 			echo "El Correo Electrónico ya se Encuentra Registrado Controller";			
 		}	
 	
-}	
+	}	
 }
