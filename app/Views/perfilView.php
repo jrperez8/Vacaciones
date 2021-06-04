@@ -33,8 +33,7 @@
 
       <div class="row">
 
-      <div class="col-sm-12 d-flex justify-content-center">
-          
+      <div class="col-sm-12 d-flex justify-content-center">          
           <div class="col-sm-6 px-1 mt-2 mb-1 ms-1 ps-3">
           <section>
             <div class="container">
@@ -85,17 +84,21 @@
             </div>
             <div class="col-12 mb-2">
             <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Actualizar</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            
          </div>
           </form>
                 </div>                       
               </div>                
-            </div>         
+            </div> 
+            <div class="col-sm-12 my-2 mx-2">
+                <form action="<?php echo base_url();?>/pais" method="POST">
+                    <button type="submit" value="" class="btn btn-warning text-dark amiri" id="btn_ingreso">ENCUENTRA LOS MEJORES ALOJAMIENTOS</button>
+                </form>                  
+            </div>        
             </div>  
             </div>             
           </section>          
           </div>
-
           <div class="col-sm-6 px-3 mt-5">     
 
             <div class="col-sm-12 mb-3">
@@ -130,7 +133,7 @@
 
                   </div>
               </div>
-              <div class="col-sm-12 pt-1 mt-1 mb-1">
+    <div class="col-sm-12 pt-1 mt-1 mb-1">
      <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Leer Mi Reseña
      </button>
@@ -172,12 +175,12 @@
   </div>
 
   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Actualizar Foto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Actualizar Foto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
       <div class="modal-body">
        <div class="col-sm-12 pt-1 mt-1 mb-3">
 
@@ -194,7 +197,5 @@
     </div>
   </div>
 </div>
-
-
 </div>
 </main>

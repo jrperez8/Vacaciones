@@ -37,6 +37,7 @@ class PerfilController extends BaseController
 		$imagesModel = new PerfilModel();
 		$session = \Config\Services::session();
 		$email = $session->get('email');
+		$rol = $session->get('rol');
 		$file = $request->getFile('foto_perfil');
 		$filename = $file->getRandomName();
 		//$filename = "";
@@ -45,7 +46,8 @@ class PerfilController extends BaseController
 			$filename = base_url(). '/uploads/images/' .$filename;
 		}
 		$imagesModel->addImages($email,$filename);
-		return redirect()->to('/perfil');
+
+	    return redirect()->to('/rol');             	
 	}
 
 	public function reviewUser(){
@@ -53,15 +55,21 @@ class PerfilController extends BaseController
 		$reviewmodel = new PerfilModel();
 		$session = \Config\Services::session();
 		$email = $session->get('email');
+		$rol = $session->get('rol');
 		$newreview = $request->getPost('actreview');
 		$reviewmodel->updateReview($email,$newreview);
-		return redirect()->to('/perfil');
+		if ($rol == "anfitrion"){
+            return redirect()->to('/perfil');
+        }else{
+            return redirect()->to('/cliente');
+        }      	
 	}
 
 	public function updateUser(){
 		$request = \Config\Services::request();
 		$actualizaUser = new PerfilModel();
 		$session = \Config\Services::session();
+		$rol = $session->get('rol');
 		$id = $session->get('id');
 		$name = $request->getPost ('name');
 		$email = $request->getPost ('email');
@@ -70,7 +78,11 @@ class PerfilController extends BaseController
 		$city = $request->getPost ('city');		
 		$rol = $request->getPost ('rol');
 		$actualizaUser->updateUser($id,$name,$email,$password,$country,$city,$rol);
-		return redirect()->to('/perfil');
+		if ($rol == "anfitrion"){
+            return redirect()->to('/perfil');
+        }else{
+            return redirect()->to('/cliente');
+        }     
 	}
 
 }
