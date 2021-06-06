@@ -55,11 +55,7 @@
                     <label for="validationCustom03" class="form-label amiri">Ciudad</label>
                     <input type="text" class="form-control" id="city" name="city" required>    
                     </div> 
-                    <div>
-                    <label for="" class="amiri">SELECCIONA TU PERFIL</label>
-                        <input class="form-check-input" type="radio" name="rol" value="anfitrion">Anfitrión</input>           
-                        <input class="form-check-input" type="radio" name="rol" value="cliente">Cliente</input>             
-                    </div>
+                   
                     <div class="col-12 mb-2">
                     <button type="submit" value="REGISTRARSE" class="btn btn-warning" id="btn_registro">Actualizar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

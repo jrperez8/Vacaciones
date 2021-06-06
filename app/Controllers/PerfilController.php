@@ -76,8 +76,8 @@ class PerfilController extends BaseController
 		$password = $request->getPost ('password');
 		$country = $request->getPost ('country');
 		$city = $request->getPost ('city');		
-		$rol = $request->getPost ('rol');
-		$actualizaUser->updateUser($id,$name,$email,$password,$country,$city,$rol);
+		//$rol = $request->getPost ('rol');
+		$actualizaUser->updateUser($id,$name,$email,$password,$country,$city);
 		if ($rol == "anfitrion"){
             return redirect()->to('/perfil');
         }else{

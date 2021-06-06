@@ -24,8 +24,8 @@ class PerfilModel extends Model {
       return $upreview->getResult();
     }
 
-    function updateUser($id,$name,$email,$password,$country,$city,$rol){
-      $sql = "UPDATE usuarios SET name= '{$name}', email= '{$email}', password= '{$password}', country= '{$country}', city= '{$city}', rol= '{$rol}' WHERE id = '{$id}'";
+    function updateUser($id,$name,$email,$password,$country,$city){
+      $sql = "UPDATE usuarios SET name= '{$name}', email= '{$email}', password= '{$password}', country= '{$country}', city= '{$city}' WHERE id = '{$id}'";
       $updateusers = $this->db->query($sql);
       return $updateusers->getResult();
     }

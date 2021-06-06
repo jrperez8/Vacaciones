@@ -127,7 +127,7 @@ function updateValidation(){
     let clave2 = document.getElementById("password2").value;
     let pais = document.getElementById("country").value;
     let ciudad = document.getElementById("city").value; 
-    let rol = document.getElementsByName("rol").value;  
+    //let rol = document.getElementsByName("rol").value;  
 
     var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
     
@@ -165,12 +165,7 @@ function updateValidation(){
                         alert("Debe diligenciar el campo Ciudad");
                         return false;
                          }
-                    else{                        
-                        if(!document.querySelector('input[name="rol"]:checked')){
-                                  alert("Debes Seleccionar un Rol");
-                                  return false;
-                              } 
-                              else{
+                         else{
                                   return true;
                               }                    
                            
@@ -185,6 +180,8 @@ function updateValidation(){
     
    
 }
+
+
 
 
 

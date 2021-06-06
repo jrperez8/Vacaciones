@@ -108,7 +108,10 @@
                   <div class="col-md-12">
                      <label for="validationCustom01" class="form-label">Ingrese Direccion Completa</label>
                      <input type="text" class="form-control" id="direccion" name="direccion" required>                        
-                  </div>                  
+                  </div>  
+                  <div class="col-md-12 ">
+                    
+                  </div>                
                   <div class="col-md-4">
                      <label for="validationCustom01" class="form-label"># de Habitaciones</label>
                      <input type="text" class="form-control" id="habitaciones" name="habitaciones" required>                        
