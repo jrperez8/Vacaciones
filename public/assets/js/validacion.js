@@ -1,5 +1,4 @@
-
-function loginvalidation (){
+function loginValidation (){
     let user = document.getElementById("email");
     let clave = document.getElementById("password");
         
@@ -10,16 +9,11 @@ function loginvalidation (){
         }
         else {
             return true;
-        }   
-        
+        }          
         
 }
 
-function mensajeValidation(){
-    alert("Correo Electrónico No Registrado");
-}
-
-function registervalidation(){   
+function registerValidation(){   
 
     let name = document.getElementById("name").value;
     let email = document.form1.email.value;
@@ -92,33 +86,6 @@ function registervalidation(){
    
 }
 
-function updateapto(){
-
-    let idapto = document.getElementById("apto").value;
-
-
-    document.getElementById("id_apto").value = idapto; 
-    
-    
-}
-
-function removeapto(){    
-    let opcion = confirm ("Desea Eliminar este Inmueble?");
-    if (opcion == false){
-        alert ("Operación Cancelada");
-        return false
-    }else {
-        alert ("Inmueble Retirado");
-        return true;
-    }   
-    
-}
-
-function addDataModal(){
-    let ciudad = document.getElementByName(actciudad);
-    alert(ciudad);
-}
-
 function updateValidation(){   
 
     let name = document.getElementById("name").value;
@@ -175,14 +142,9 @@ function updateValidation(){
             }
         }
         
-     }      
+          
     } 
     
    
 }
-
-
-
-
-
 
