@@ -29,7 +29,7 @@
                    <p class="card-text"><?php echo ($datoapto->resena_apto)?></p>
                    <p class="card-text">Valor noche $ <?php echo ($datoapto->valor_noche)?></p>
                    <?php $route = base_url()."/deleteapto?id_apto={$datoapto->id_apto}";?>
-                   <a href="<?php echo $route?>" class="btn btn-outline-danger" onclick="return removeapto()">Delete</a>
+                   <a href="<?php echo $route?>" class="btn btn-outline-danger" onclick="return removeApto()">Delete</a>
                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editar<?php echo ($datoapto->id_apto)?>">Editar</button>
                 </div> 
               </div>

@@ -148,3 +148,15 @@ function updateValidation(){
    
 }
 
+function removeApto(){    
+    let opcion = confirm ("Desea Eliminar este Inmueble?");
+    if (opcion == false){
+        alert ("Operación Cancelada");
+        return false
+    }else {
+        alert ("Inmueble Retirado");
+        return true;
+    }   
+
+}
+
